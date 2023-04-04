@@ -19,14 +19,16 @@ async function install(version) {
   }
 
   const zip = zipName();
-  let url = `https://github.com/denoland/deno/releases/download/v${version.version}/${zip}`;
-      
+  let url =
+    `https://github.com/denoland/deno/releases/download/v${version.version}/${zip}`;
+
   if (version.isCanary) {
     url = `https://dl.deno.land/canary/${version.version}/${zip}`;
   }
   // NB(@ostera): if we're running on ARM and Linux, we'll use @LukeChannings' releases
   if (zip.includes("aarch64") && zip.includes("linux")) {
-    url = `https://github.com/LukeChannings/deno-arm64/releases/download/v${version.version}/deno-linux-arm64.zip`
+    url =
+      `https://github.com/LukeChannings/deno-arm64/releases/download/v${version.version}/deno-linux-arm64.zip`;
   }
 
   core.info(`Downloading Deno from ${url}.`);
