@@ -25,7 +25,7 @@ async function install(version) {
     url = `https://dl.deno.land/canary/${version.version}/${zip}`;
   }
   // NB(@ostera): if we're running on ARM and Linux, we'll use @LukeChannings' releases
-  if (zip == "deno-aarch64-unknown-linux-gnu.zip.") {
+  if (zip.includes("aarch64") && zip.includes("linux")) {
     url = `https://github.com/LukeChannings/deno-arm64/releases/download/v${version.version}/deno-linux-arm64.zip`
   }
 
